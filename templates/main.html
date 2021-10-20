@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Auto Corrector</title>
+  <link rel="stylesheet" href="../static/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <meta charset="utf-8">
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700|Prata" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="gray-div">
+    <div class="top-nav-bar">
+      <button>Day</button>
+      <button>Week</button>
+      <button>Month</button>
+      <button>Year</button>
+    </div>
+
+    <div class="show-day">
+      <div class="arrow">
+        <i class="fa fa-chevron-left"></i>
+      </div>
+      <div class="day">
+        <h1>Thursday</h1>
+        <h2>Mar 23, 2017</h2>
+      </div>
+      <div class="arrow">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </div>
+
+
+    <div class="add-task">
+      <i class="fa fa-align-left"></i>
+      <input type="text" name="" value="" placeholder="Add a task...">
+    </div>
+
+    <div class="all-task">
+      <input type="checkbox" id="todo" name="todo" value="todo">
+      <label for="todo" data-content="Get out of bed">Get out of bed</label>
+      <button id="edit-list-button"><i class="fa fa-ellipsis-h"></i></button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#"><i class="fa fa-map-pin"></i>Pin on the top</a>
+        <a href="#"><i class="fa fa-file"></i>Add a memo</a>
+        <a href="#"><i class="fa fa-trash"></i>Delete</a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+<script>
+
+  var drop_down_button = document.getElementById("edit-list-button");
+
+  drop_down_button.onclick = function() {
+    var click = document.getElementById("myDropdown");
+    if (click.style.display === "none") {
+      click.style.display = "block";
+    } else {
+      click.style.display = "none";
+    }
+  }
+</script>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
