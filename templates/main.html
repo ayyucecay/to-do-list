@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <title>Auto Corrector</title>
-  <link rel="stylesheet" href="../static/main.css">
+  <link rel="stylesheet" href="{% static 'main.css' %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5.0" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -48,14 +49,17 @@
     </div>
 
     <div class="all-task">
-      <input type="checkbox" id="todo" name="todo" value="todo">
-      <label for="todo" data-content="Get out of bed">Get out of bed</label>
-      <button id="edit-list-button"><i class="fa fa-ellipsis-h"></i></button>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="#"><i class="fa fa-map-pin"></i>Pin on the top</a>
-        <a href="#"><i class="fa fa-file"></i>Add a memo</a>
-        <a href="#"><i class="fa fa-trash"></i>Delete</a>
-      </div>
+      <form action="index.html">
+        <input type="checkbox" id="todo" name="todo" value="todo">
+        <label for="todo" data-content="Get out of bed">Get out of bed</label>
+        <button id="edit-list-button"><i class="fa fa-ellipsis-h"></i></button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#"><i class="fa fa-map-pin"></i>Pin on the top</a>
+          <a href="#"><i class="fa fa-file"></i>Add a memo</a>
+          <a href="#"><i class="fa fa-trash"></i>Delete</a>
+        </div>
+      </form>
+
     </div>
 
 
