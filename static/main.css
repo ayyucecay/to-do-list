@@ -10,6 +10,7 @@
   border-radius: 6px;
   margin-top: 4%;
   overflow-y: scroll;
+  position: relative;
 }
 
 /*----------------------------------  top-nav-bar  --------------------------*/
@@ -156,6 +157,15 @@
   margin-top: 1%;
   border: none;
   background-color: transparent;
+}
+
+.todo_submit_btn {
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0;
+  background-color: green;
+  color: white;
+  width: 100px !important;
 }
 
 /*----------------------------------  all task drop-down --------------------------*/

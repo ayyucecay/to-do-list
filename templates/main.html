@@ -3,10 +3,11 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title>Auto Corrector</title>
+  <title>To Do List</title>
   <link rel="stylesheet" href="{% static 'main.css' %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5.0" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <meta charset="utf-8">
 
@@ -47,35 +48,54 @@
       <form action="{% url 'random_view' %}" method="Post">
         {% csrf_token %}
         <input type="text" name="todo_content" placeholder="Add a task..." class="add-task-input">
-        <input type="submit" value= "save" name= "add_task_form_submit" class="add-task-button">
+        <input type="submit" value="save" name="add_task_form_submit" class="add-task-button">
       </form>
 
     </div>
 
     <div class="all-task">
 
-      {% for i in all_items %}
-      <form action="{% url 'random_view' %}" method="Post">
+
+      <form action="{% url 'random_view' %}" method="Post" id="todo_checklist_edit_form">
+        {% csrf_token %}
+
+        {% for i in all_items %}
         {% if i.is_completed == True %}
         <input type="checkbox" id="todo" name="todo" checked>
         {% else %}
         <input type="checkbox" id="todo" name="todo">
         {% endif %}
-        <label for="todo" data-content="Get out of bed">{{i.todo_content}}</label>
-        <button id="edit-list-button"><i class="fa fa-ellipsis-h"></i></button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#"><i class="fa fa-map-pin"></i>Pin on the top</a>
-          <a href="#"><i class="fa fa-file"></i>Add a memo</a>
-          <a href="#"><i class="fa fa-trash"></i>Delete</a>
+        <input type="hidden" value="{{ i.id }}" name="{{ i.id }}">
+        <label for="todo">{{i.todo_content}}</label>
 
-        </div>
+        <br>
+        {% endfor %}
+
+        <input type="submit" value="submit" class="todo_submit_btn" name="todo_checklist_submit_for_button" id="todo-checklist-button">
       </form>
-      {% endfor %}
 
+      <script>
+
+        var todo_checklist_button = document.getElementById("todo-checklist-button");
+        todo_checklist_button.onclick = function(){
+          $(document).ready(function() {
+            $("form").submit(function() {
+              console.log("hey");
+              alert("Submitted");
+            });
+          });
+        }
+
+      </script>
+
+
+      <button id="edit-list-button"><i class="fa fa-ellipsis-h"></i></button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#"><i class="fa fa-map-pin"></i>Pin on the top</a>
+        <a href="#"><i class="fa fa-file"></i>Add a memo</a>
+        <a href="#"><i class="fa fa-trash"></i>Delete</a>
+      </div>
     </div>
-
-
-
   </div>
 
 

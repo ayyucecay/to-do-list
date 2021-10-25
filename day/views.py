@@ -40,9 +40,10 @@ def random_view(request):
             new_todo.save()
             return HttpResponseRedirect("/")
 
+
     # Checking the todo box form processing
-
-
+    if request.POST.get("todo_checklist_submit_for_button"):
+        print("heyo")
 
 
     data = {
