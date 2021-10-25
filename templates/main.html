@@ -44,21 +44,33 @@
 
 
     <div class="add-task">
-      <i class="fa fa-align-left"></i>
-      <input type="text" name="" value="" placeholder="Add a task...">
+      <form action="{% url 'random_view' %}" method="Post">
+        {% csrf_token %}
+        <input type="text" name="todo_content" placeholder="Add a task..." class="add-task-input">
+        <input type="submit" value= "save" name= "add_task_form_submit" class="add-task-button">
+      </form>
+
     </div>
 
     <div class="all-task">
-      <form action="index.html">
-        <input type="checkbox" id="todo" name="todo" value="todo">
-        <label for="todo" data-content="Get out of bed">Get out of bed</label>
+
+      {% for i in all_items %}
+      <form action="{% url 'random_view' %}" method="Post">
+        {% if i.is_completed == True %}
+        <input type="checkbox" id="todo" name="todo" checked>
+        {% else %}
+        <input type="checkbox" id="todo" name="todo">
+        {% endif %}
+        <label for="todo" data-content="Get out of bed">{{i.todo_content}}</label>
         <button id="edit-list-button"><i class="fa fa-ellipsis-h"></i></button>
         <div id="myDropdown" class="dropdown-content">
           <a href="#"><i class="fa fa-map-pin"></i>Pin on the top</a>
           <a href="#"><i class="fa fa-file"></i>Add a memo</a>
           <a href="#"><i class="fa fa-trash"></i>Delete</a>
+
         </div>
       </form>
+      {% endfor %}
 
     </div>
 
@@ -67,19 +79,18 @@
   </div>
 
 
-<script>
+  <script>
+    var drop_down_button = document.getElementById("edit-list-button");
 
-  var drop_down_button = document.getElementById("edit-list-button");
-
-  drop_down_button.onclick = function() {
-    var click = document.getElementById("myDropdown");
-    if (click.style.display === "none") {
-      click.style.display = "block";
-    } else {
-      click.style.display = "none";
+    drop_down_button.onclick = function() {
+      var click = document.getElementById("myDropdown");
+      if (click.style.display === "none") {
+        click.style.display = "block";
+      } else {
+        click.style.display = "none";
+      }
     }
-  }
-</script>
+  </script>
 
 
 

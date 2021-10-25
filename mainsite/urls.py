@@ -5,5 +5,5 @@ from day.views import random_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('day/', random_view),
+    path('', random_view, name="random_view"),
 ]
